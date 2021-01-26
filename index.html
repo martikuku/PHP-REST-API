@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESHOP – Staviva eMKo</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            outputData();
+            
+            function outputData(){
+                // var headers = {'X-Authorization': 'authy'};
+
+                $.ajax({
+                    type: 'GET',
+                    url: "http://eshop.staviva-emko.cz/api/v1.0/stocks.xml",
+                    // processData: true,
+                    // crossDomain: true,
+                    // xhrFields: { withCredentials: false },
+                    // dataType: 'json',
+                    // dataType: 'xml',
+                    // data: args,
+                    // headers: headers,
+                    timeout: 60000,
+                    success: function (response, general_msg) {
+                        console.log("success", arguments);
+                    },
+                    error: function (data, general_error) {
+                        console.log("error", arguments);
+                    },
+                });
+            }
+        });
+    </script>
+</body>
+</html>
