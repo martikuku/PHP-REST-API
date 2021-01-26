@@ -4,10 +4,10 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 
 // Let's define very primitive autoloader
-spl_autoload_register(function($classname){
+spl_autoload_register(static function($classname){
     $classname = str_replace('Api_', 'Apis/', $classname);
-    if (file_exists(__DIR__.'/'.$classname.'.php')) {
-        require __DIR__.'/'.$classname.'.php';
+    if (file_exists(__DIR__."/$classname.php")) {
+        require __DIR__."/$classname.php";
     }
 });
 
